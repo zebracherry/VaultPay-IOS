@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- [M5 / MASVS-NETWORK-1] App Transport Security fully disabled -> plain HTTP allowed everywhere. -->
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+    </dict>
+
+    <!-- [M8 / MASVS-PLATFORM-1] Custom URL scheme with no validation -> the vaultpay:// deep-link
+         attack surface (handled in VaultPayApp.onOpenURL, rendered in a WKWebView). -->
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLName</key>
+            <string>nz.co.vaultpay</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>vaultpay</string>
+            </array>
+        </dict>
+    </array>
+
+    <!-- [M8 / MASVS-STORAGE-2] File sharing exposes the app's Documents/ (with the PAN export) over
+         Finder / the Files app. -->
+    <key>UIFileSharingEnabled</key>
+    <true/>
+    <key>LSSupportsOpeningDocumentsInPlace</key>
+    <true/>
+
+    <!-- [M6 / MASVS-PRIVACY-2] Broad, unjustified privacy usage strings requesting data a wallet
+         app does not need. -->
+    <key>NSContactsUsageDescription</key>
+    <string>VaultPay needs your contacts.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>VaultPay needs your location.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>VaultPay needs your photos.</string>
+
+    <key>UILaunchScreen</key>
+    <dict/>
+</dict>
+</plist>

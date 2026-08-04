@@ -1,0 +1,26 @@
+# Xcode
+build/
+DerivedData/
+*.xcuserstate
+*.xcuserdatad/
+xcuserdata/
+*.xcscmblueprint
+*.xccheckout
+
+# XcodeGen output (regenerate from project.yml)
+*.xcodeproj
+
+# Swift Package Manager
+.build/
+Package.resolved
+
+# CocoaPods / Carthage (if added later)
+Pods/
+Carthage/Build/
+
+# Signing material — never commit
+*.mobileprovision
+*.p12
+*.certSigningRequest
+
+.DS_Store

@@ -1,0 +1,36 @@
+# XcodeGen spec. On macOS:  brew install xcodegen && xcodegen generate && open VaultPay.xcodeproj
+name: VaultPay
+options:
+  bundleIdPrefix: nz.co
+  deploymentTarget:
+    iOS: "16.0"
+  createIntermediateGroups: true
+targets:
+  VaultPay:
+    type: application
+    platform: iOS
+    sources:
+      - path: VaultPay
+    info:
+      path: VaultPay/Info.plist
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: nz.co.vaultpay
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        SWIFT_VERSION: "5.0"
+        GENERATE_INFOPLIST_FILE: NO
+        # [M7 / MASVS-RESILIENCE-3] No obfuscation; symbols kept for readable class-dump output.
+        # (No jailbreak/anti-tamper detection anywhere in the app either.)
+
+# [M2 / MASVS-CODE-2] Inadequate supply chain security.
+# Uncomment to pin a deliberately OUTDATED dependency that SCA tools (MobSF / OWASP dependency-check)
+# will flag. Choose a version with published advisories, then `xcodegen generate` again.
+# packages:
+#   Alamofire:
+#     url: https://github.com/Alamofire/Alamofire
+#     exactVersion: 4.9.1        # years out of date; illustrative — verify it builds on your target
+# targets:
+#   VaultPay:
+#     dependencies:
+#       - package: Alamofire
