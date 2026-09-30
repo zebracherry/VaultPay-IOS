@@ -1,0 +1,16 @@
+INTENTIONALLY VULNERABLE SOFTWARE — VaultPay-iOS
+================================================
+
+VaultPay-iOS is deliberately insecure and exists solely for security education and
+authorised testing practice. Build and run it only in isolated environments (the iOS
+Simulator or a dedicated, non-personal test device). Do not deploy it, submit it to the
+App Store, or run it on a device holding real data. The authors accept no liability for misuse.
+
+---
+
+This notice previously sat at the end of LICENSE. It was moved here so LICENSE
+holds the unmodified MIT text and automated tooling (GitHub, SPDX scanners,
+dependency audits) can identify the licence correctly. Nothing about the warning
+or the MIT terms has changed.
+
+See the README for the full list of planted vulnerabilities and setup guidance.
